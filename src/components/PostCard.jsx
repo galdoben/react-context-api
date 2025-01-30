@@ -1,10 +1,12 @@
-import { use } from "react";
+
 import { useGlobalContext } from "../content/GlobalContext"
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react"
 
 const PostCard = () => {
 
     const { posts, fetchPosts } = useGlobalContext();
+    const navigate = useNavigate()
 
     useEffect(() => {
         fetchPosts();
@@ -12,7 +14,7 @@ const PostCard = () => {
 
     return (
         <div>
-            <div className="card" >
+            <div className="card">
                 {posts.map((post) => (
                     <div key={post.id}>
                         <img src="..." className="card-img-top" alt="..." />
@@ -21,7 +23,9 @@ const PostCard = () => {
                             <p className="card-text">{post?.content}</p>
                             <a href="#" className="btn btn-primary">Elimina</a>
                             <div className="d-flex justify-content-between">
-                                <button type="button" className="btn btn-warning" onClick={() => navigate(-1)}>Back</button>
+                                <button type="button" className="btn btn-warning" onClick={() => navigate(-1)}>
+                                    Back
+                                </button>
                             </div>
                         </div>
                     </div>

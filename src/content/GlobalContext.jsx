@@ -1,7 +1,6 @@
 
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { use } from 'react';
 import { createContext, useState, useContext } from 'react';
 import { useEffect } from 'react';
 
@@ -30,5 +29,4 @@ const useGlobalContext = () => {
 }
 
 
-export default GlobalContext
 export { GlobalProvider, useGlobalContext }
